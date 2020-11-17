@@ -1,7 +1,6 @@
 <?php
     class Database {
     
-        // specify your own database credentials
         private $host = "localhost";
         private $db_name = "companydirectory";
         private $username = "admin";
@@ -9,7 +8,7 @@
         private $charset = "utf8";
         public $connection;
     
-        // get the database connection
+        // get database connection
         public function getConnection() {
     
             $this->connection = null;
