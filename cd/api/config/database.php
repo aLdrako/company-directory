@@ -8,7 +8,7 @@
         private $charset = "utf8";
         public $connection;
     
-        // get database connection
+        // get the database connection
         public function getConnection() {
     
             $this->connection = null;
