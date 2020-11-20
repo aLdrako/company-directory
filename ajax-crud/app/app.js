@@ -2,24 +2,17 @@ $(document).ready(function(){
  
     // app html
     let appHtml=`
-        <div class='container'>
- 
-            <div class='page-header'>
-                <h1 id='page-title'>Read Personnel</h1>
+            <div class="container-fluid main-content px-0">
+                <div id="page-content"></div>
             </div>
- 
-            <!-- this is where the contents will be shown. -->
-            <div id='page-content'></div>
- 
-        </div>`;
+        `;
  
     $("#app").html(appHtml);
- 
 });
  
 function changePageTitle(pageTitle){
  
-    $('#page-title').text(pageTitle);
+    $('.page-title').text(pageTitle);
     document.title = pageTitle;
 }
  
