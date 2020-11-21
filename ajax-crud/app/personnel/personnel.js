@@ -1,9 +1,9 @@
 function readPersonnelTemplate(data, keywords) {
 
     let readPersonnelHtml = `
-        <nav id="navbar" class="navbar navbar-expand-sm fixed-top navbar-dark">
-            <a class="navbar-brand page-title" href=""><h2>Personnel</h2></a>
-            <button id="add-personnel" class="btn btn-outline-light btn-sm mr-auto create-personnel-btn">Create</button>
+        <nav id="navbar" class="navbar navbar-expand-md fixed-top navbar-dark">
+            <a class="navbar-brand" href="#"><h4 class="page-title"></h4></a>
+            <button id="create-personnel" class="btn btn-outline-light btn-sm mr-auto create-personnel-btn">Create</button>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -29,7 +29,7 @@ function readPersonnelTemplate(data, keywords) {
 
         readPersonnelHtml += `
             <div class="row justify-content-center text-center text-md-left py-2 md-mb-1 personnel-info">
-                <div class="col-6 col-md-2 align-self-start rounded-top personnel-data"><i class="fas fa-user d-inline d-md-none"></i> ${value.firstName} ${value.lastName}</div>
+                <div class="col-6 col-md-2 align-self-center rounded-top personnel-data"><i class="fas fa-user d-inline d-md-none"></i> ${value.firstName} ${value.lastName}</div>
                 <div class="w-100 d-md-none d-block"></div>
                 <div class="col-6 col-md-2 align-self-center personnel-data"><i class="fas fa-address-card d-inline d-md-none"></i> ${value.jobTitle}</div>
                 <div class="w-100 d-md-none d-block"></div>
@@ -40,7 +40,7 @@ function readPersonnelTemplate(data, keywords) {
                 <div class="col-6 col-md-2 align-self-center personnel-data"><i class="fas fa-map-marker-alt d-inline d-md-none"></i> ${value.location}</div>
                 <div class="w-100 d-md-none d-block"></div>
                 <div class="col-6 col-md-2 align-self-center text-nowrap rounded-bottom py-1 personnel-data">
-                    <button class="btn btn-primary btn-sm update-personnel-btn" data-id="${value.id}"><i class="far fa-eye"></i></button>
+                    <button class="btn btn-primary btn-sm read-one-personnel-btn" data-id="${value.id}"><i class="far fa-eye"></i></button>
                     <button class="btn btn-info btn-sm update-personnel-btn" data-id="${value.id}"><i class="far fa-edit"></i></button>
                     <button class="btn btn-danger btn-sm delete-personnel-btn" data-id="${value.id}"><i class="far fa-trash-alt"></i></button>
                 </div>
