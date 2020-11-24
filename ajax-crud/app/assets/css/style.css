@@ -8,6 +8,10 @@
     color: #e9c46a;
 }
 
+.personnel-info .input-group-text {
+    width: 2.67rem;
+}
+
 @media only screen and (max-width: 768px) {
     .personnel-info {
         background-color: #e9c46a;
@@ -18,7 +22,7 @@
         color: #e9c46a;
     }
 
-    #personnel-search.form-inline {
+    #search-personnel-form.form-inline {
         flex-flow: row nowrap;
     }
 }

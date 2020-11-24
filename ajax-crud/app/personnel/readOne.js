@@ -6,7 +6,26 @@ $(document).ready(function(){
 
         $.getJSON("http://localhost/company-directory/api/personnel/readOne.php?id=" + id, function(data){
 
-            var readOnePersonHtml = `
+            let readOnePersonHtml = `
+                <!-- MODAL -->
+                <div class="modal fade" id="deleteModalConfirmation" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="deleteModalLabel">Delete person</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-danger btn-del">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NAVBAR -->
                 <nav id="navbar" class="navbar navbar-expand-md fixed-top navbar-dark">
                     <a class="navbar-brand" href="#"><h4 class="page-title"></h4></a>
                     <button id="read-personnel" class="btn btn-outline-light btn-sm mr-auto read-personnel-btn">Show</button>
@@ -35,7 +54,7 @@ $(document).ready(function(){
                         <div class="w-100 d-md-none d-block"></div>
                         <div class="col-6 col-md-2 align-self-center text-nowrap rounded-bottom py-1 personnel-data">
                             <button class="btn btn-info btn-sm update-personnel-btn" data-id="${data.id}"><i class="far fa-edit"></i></button>
-                            <button class="btn btn-danger btn-sm delete-personnel-btn" data-id="${data.id}"><i class="far fa-trash-alt"></i></button>
+                            <button class="btn btn-danger btn-sm delete-personnel-btn" data-id="${data.id}" data-toggle="modal" data-target="#deleteModalConfirmation"><i class="far fa-trash-alt"></i></button>
                         </div>
                     </div>
                 </div>

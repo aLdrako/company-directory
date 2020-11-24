@@ -28,6 +28,7 @@
             "jobTitle" => $personnel->jobTitle,
             "email" => $personnel->email,
             "department" => $personnel->department,
+            "departmentId" => $personnel->departmentId,
             "location" => $personnel->location
         );
     

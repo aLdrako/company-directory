@@ -111,6 +111,7 @@
             $this->jobTitle = $jobTitle;
             $this->email = $email;
             $this->department = $department;
+            $this->departmentId = $departmentId;
             $this->location = $location;
         }
 

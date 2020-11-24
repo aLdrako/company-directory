@@ -28,13 +28,14 @@
 
             extract($row);
     
-            $person = array(
-                "id" => id,
+            $person = array (
+                "id" => $id,
                 "firstName" => $firstName,
                 "lastName" => $lastName,
                 "jobTitle" => $jobTitle,
                 "email" => $email,
                 "department" => $department,
+                "departmentId" => $departmentId,
                 "location" => $location
             );
     

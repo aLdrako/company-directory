@@ -1,13 +1,13 @@
 $(document).ready(function(){
  
-    // app html
-    let appHtml=`
+    let appHtml = `
             <div class="container-fluid main-content px-0">
                 <div id="page-content"></div>
             </div>
         `;
  
     $("#app").html(appHtml);
+    
 });
  
 function changePageTitle(pageTitle){

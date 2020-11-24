@@ -5,7 +5,7 @@ $(document).ready(function(){
     $(document).on('click', '.read-personnel-btn', function(){
         showPersonnel();
     });
- 
+
 });
  
 function showPersonnel(){

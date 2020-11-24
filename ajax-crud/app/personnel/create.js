@@ -13,7 +13,6 @@ $(document).ready(function(){
             departmentOptionsHtml += `</select>`;
 
             let createPersonnelHtml = ` 
-
                 <nav id="navbar" class="navbar navbar-expand-md fixed-top navbar-dark">
                     <a class="navbar-brand" href="#"><h4 class="page-title"></h4></a>
                     <button id="read-personnel" class="btn btn-outline-light btn-sm mr-auto read-personnel-btn">Show</button>
@@ -22,7 +21,7 @@ $(document).ready(function(){
                 <form id='create-personnel-form' action='#' method='post'>
                     <div class="container-fluid">
                         <div class="row justify-content-center text-center text-md-left py-2 md-mb-1 personnel-info">
-                            <div class="col-10 rounded-top personnel-data">
+                            <div class="col-10 col-md-6 rounded-top personnel-data">
                                 <label class="sr-only" for="firstName">First Name</label>
                                 <label class="sr-only" for="lastName">Last Name</label>
                                 <div class="input-group my-2">
@@ -33,7 +32,8 @@ $(document).ready(function(){
                                     <input class="form-control" type='text' name='lastName' id="lastName" placeholder="Last Name" required />
                                 </div>
                             </div>
-                            <div class="col-10 personnel-data">
+                            <div class="w-100 d-md-block d-none"></div>
+                            <div class="col-10 col-md-6 personnel-data">
                                 <label class="sr-only" for="department">Department</label>
                                 <label class="sr-only" for="jobTitle">Department</label>
                                 <div class="input-group mb-2">
@@ -44,7 +44,8 @@ $(document).ready(function(){
                                     <input class="form-control" type='text' name='jobTitle' id="jobTitle" placeholder="Job Title" required />
                                 </div>
                             </div>
-                            <div class="col-10 rounded-bottom personnel-data">
+                            <div class="w-100 d-md-block d-none"></div>
+                            <div class="col-10 col-md-6 rounded-bottom personnel-data">
                                 <label class="sr-only" for="email">Email</label>
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
@@ -69,10 +70,8 @@ $(document).ready(function(){
  
     $(document).on('submit', '#create-personnel-form', function(){
         
-        // get form data
         let formData = JSON.stringify($(this).serializeObject());
 
-        // submit form data to api
         $.ajax({
             url: "http://localhost/company-directory/api/personnel/create.php",
             type : "POST",
