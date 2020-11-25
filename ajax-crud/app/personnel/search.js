@@ -8,6 +8,9 @@ $(document).ready(function(){
  
             readPersonnelTemplate(data, keywords);
 
+            $('#create-personnel').remove();
+            $('#navbar a:first-child').after('<button id="read-personnel" class="btn btn-outline-light btn-sm mr-auto read-personnel-btn" data-toggle="tooltip" title="Show all entries" data-placement="top"><i class="fas fa-list"></i></button>');
+
             changePageTitle("Search: " + keywords);
  
         });

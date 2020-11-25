@@ -1,6 +1,8 @@
 $(document).ready(function(){
- 
+
     $(document).on('click', '.create-personnel-btn', function(){
+
+        $('.tooltip').remove();
 
         $.getJSON("http://localhost/company-directory/api/department/read.php", function(data){
         
@@ -15,7 +17,7 @@ $(document).ready(function(){
             let createPersonnelHtml = ` 
                 <nav id="navbar" class="navbar navbar-expand-md fixed-top navbar-dark">
                     <a class="navbar-brand" href="#"><h4 class="page-title"></h4></a>
-                    <button id="read-personnel" class="btn btn-outline-light btn-sm mr-auto read-personnel-btn">Show</button>
+                    <button id="read-personnel" class="btn btn-outline-light btn-sm mr-auto read-personnel-btn" data-toggle="tooltip" title="Show all entries" data-placement="top"><i class="fas fa-list"></i></button>
                 </nav>
 
                 <form id='create-personnel-form' action='#' method='post'>
@@ -35,7 +37,7 @@ $(document).ready(function(){
                             <div class="w-100 d-md-block d-none"></div>
                             <div class="col-10 col-md-6 personnel-data">
                                 <label class="sr-only" for="department">Department</label>
-                                <label class="sr-only" for="jobTitle">Department</label>
+                                <label class="sr-only" for="jobTitle">Job Title</label>
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="fas fa-network-wired"></i></div>
@@ -64,7 +66,7 @@ $(document).ready(function(){
 
             $("#page-content").html(createPersonnelHtml);
             
-            changePageTitle("Add Person");
+            changePageTitle("Add person");
         });
     });
  

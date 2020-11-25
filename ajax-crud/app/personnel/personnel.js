@@ -21,15 +21,17 @@ function readPersonnelTemplate(data, keywords) {
 
         <!-- NAVBAR -->
         <nav id="navbar" class="navbar navbar-expand-md fixed-top navbar-dark">
-            <a class="navbar-brand read-personnel-btn" href="#"><h4 class="page-title"></h4></a>
-            <button id="create-personnel" class="btn btn-outline-light btn-sm mr-auto create-personnel-btn">Create</button>
+            <a class="navbar-brand" href="#"><h4 class="page-title"></h4></a>
+            <button id="create-personnel" class="btn btn-outline-light btn-sm create-personnel-btn"  data-toggle="tooltip" title="Add person" data-placement="top"><i class="fas fa-user-plus"></i></button>
+            <button id="create-department" class="btn btn-outline-light btn-sm ml-1 create-department-btn"  data-toggle="tooltip" title="Departments" data-placement="top"><i class="fas fa-network-wired">+</i></button>
+            <button id="create-location" class="btn btn-outline-light btn-sm mr-auto ml-1 create-location-btn"  data-toggle="tooltip" title="Locations" data-placement="top"><i class="fas fa-map-marker-alt">+</i></button>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <form class="form-inline ml-sm-auto mt-1" id='search-personnel-form' action='#' method='post'>
                     <input class="form-control mr-2" type="search" value="${keywords}" name="keywords" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
                 </form>
             </div>
         </nav>

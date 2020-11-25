@@ -7,6 +7,8 @@ $(document).ready(function(){
         `;
  
     $("#app").html(appHtml);
+
+    $("body").tooltip({ selector: '[data-toggle=tooltip]', trigger : 'hover' });
     
 });
  
@@ -15,7 +17,7 @@ function changePageTitle(pageTitle){
     $('.page-title').text(pageTitle);
     document.title = pageTitle;
 }
- 
+
 // function to make form values to json format
 $.fn.serializeObject = function()
 {

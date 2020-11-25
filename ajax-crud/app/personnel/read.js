@@ -7,14 +7,16 @@ $(document).ready(function(){
     });
 
 });
- 
+
 function showPersonnel(){
  
     $.getJSON("http://localhost/company-directory/api/personnel/read.php", function(data){
  
         readPersonnelTemplate(data, "");
  
-        changePageTitle("Show Personnel");
+        changePageTitle("Personnel");
+
+        $('.tooltip').remove();
  
     });
 }

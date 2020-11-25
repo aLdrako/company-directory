@@ -28,7 +28,7 @@ $(document).ready(function(){
                 <!-- NAVBAR -->
                 <nav id="navbar" class="navbar navbar-expand-md fixed-top navbar-dark">
                     <a class="navbar-brand" href="#"><h4 class="page-title"></h4></a>
-                    <button id="read-personnel" class="btn btn-outline-light btn-sm mr-auto read-personnel-btn">Show</button>
+                    <button id="read-personnel" class="btn btn-outline-light btn-sm mr-auto read-personnel-btn" data-toggle="tooltip" title="Show all entries" data-placement="top"><i class="fas fa-list"></i></button>
                 </nav>
 
                 <div class="container-fluid">
@@ -62,7 +62,7 @@ $(document).ready(function(){
 
             $("#page-content").html(readOnePersonHtml);
             
-            changePageTitle("Show Person");
+            changePageTitle("Show person");
         });
     });
  

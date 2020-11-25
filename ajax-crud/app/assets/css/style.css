@@ -3,21 +3,25 @@
     color: #264653;
 }
 
-.personnel-info {
+.personnel-info,
+.department-info {
     background-color: #264653;
     color: #e9c46a;
 }
 
-.personnel-info .input-group-text {
+.personnel-info .input-group-text,
+.department-info .input-group-text {
     width: 2.67rem;
 }
 
 @media only screen and (max-width: 768px) {
-    .personnel-info {
+    .personnel-info,
+    .department-info {
         background-color: #e9c46a;
     }
 
-    .personnel-data {
+    .personnel-data,
+    .department-data {
         background-color: #264653;
         color: #e9c46a;
     }
