@@ -18,13 +18,13 @@ $(document).ready(function(){
                 <nav id="navbar" class="navbar navbar-expand-md fixed-top navbar-dark">
                     <a class="navbar-brand" href="#"><h4 class="page-title"></h4></a>
                     <button id="read-personnel" class="btn btn-outline-light btn-sm read-personnel-btn" data-toggle="tooltip" title="Show all entries" data-placement="top"><i class="fas fa-list"></i></button>
-                    <button id="update-department" class="btn btn-outline-warning btn-sm mr-auto ml-1 update-department-btn"  data-toggle="tooltip" title="Update department" data-placement="top"><i class="far fa-edit"></i></button>
+                    <button id="read-department" class="btn btn-outline-light btn-sm ml-1 mr-auto read-department-btn"  data-toggle="tooltip" title="Departments" data-placement="top"><i class="fas fa-network-wired"></i></button>
                 </nav>
 
                 <form id='create-department-form' action='#' method='post'>
                     <div class="container-fluid">
-                        <div class="row justify-content-center text-center text-md-left py-2 md-mb-1 department-info">
-                            <div class="col-10 col-md-6 rounded department-data pt-2">
+                        <div class="row justify-content-center text-md-left py-2 md-mb-1 info-panel">
+                            <div class="col-10 col-md-6 rounded pt-2 data-panel">
                                 <label class="sr-only" for="name">Name</label>
                                 <label class="sr-only" for="location">Location</label>
                                 <div class="input-group mb-2">
@@ -59,7 +59,7 @@ $(document).ready(function(){
             contentType : 'application/json',
             data : formData,
             success : function(result) {
-                showPersonnel();
+                showDepartment();
             },
             error: function(xhr, resp, text) {
                 console.log(xhr, resp, text);

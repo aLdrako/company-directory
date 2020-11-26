@@ -14,19 +14,6 @@
         public function __construct($db) {
             $this->connection = $db;
         }
-    
-        // used by select drop-down list
-        // public function readAll() {
-        //     $query = "SELECT d.id, d.name, d.locationId, l.name AS location
-        //             FROM " . $this->tableName . " d 
-        //             LEFT JOIN 
-        //                 location l ON d.locationId = l.id;";
-    
-        //     $stmt = $this->connection->prepare($query);
-        //     $stmt->execute();
-    
-        //     return $stmt;
-        // }
 
         public function read() {
         

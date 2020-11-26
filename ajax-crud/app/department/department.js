@@ -1,12 +1,12 @@
-function readPersonnelTemplate(data, keywords) {
+function readDepartmentTemplate(data, keywords) {
 
-    let readPersonnelHtml = `
+    let readDepartmentHtml = `
             <!-- MODAL -->
             <div class="modal fade" id="deleteModalConfirmation" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                        <h5 class="modal-title" id="deleteModalLabel">Delete person</h5>
+                        <h5 class="modal-title" id="deleteModalLabel">Delete department</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -22,9 +22,8 @@ function readPersonnelTemplate(data, keywords) {
             <!-- NAVBAR -->
             <nav id="navbar" class="navbar navbar-expand-md fixed-top navbar-dark">
                 <a class="navbar-brand" href="#"><h4 class="page-title"></h4></a>
-                <button class="btn btn-outline-light btn-sm read-department-btn" data-toggle="tooltip" title="Departments" data-placement="top"><i class="fas fa-network-wired"></i></button>
-                <button class="btn btn-outline-light btn-sm ml-1 read-location-btn" data-toggle="tooltip" title="Locations" data-placement="top"><i class="fas fa-map-marker-alt"></i></button>
-                <button id="create-personnel" class="btn btn-outline-warning btn-sm create-personnel-btn ml-1 mr-auto" data-toggle="tooltip" title="Add person" data-placement="top"><i class="fas fa-user-plus"></i></button>
+                <button class="btn btn-outline-light btn-sm read-personnel-btn" data-toggle="tooltip" title="Show all entries" data-placement="top"><i class="fas fa-list"></i></button>
+                <button class="btn btn-outline-warning btn-sm ml-1 mr-auto create-department-btn"  data-toggle="tooltip" title="Add department" data-placement="top"><i class="fas fa-network-wired">+</i></button>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -39,11 +38,8 @@ function readPersonnelTemplate(data, keywords) {
             <!-- TITLE ROW -->
             <div class="container-fluid">
                 <div class="row justify-content-center d-md-flex d-none py-3 font-weight-bold header-panel">
-                    <div class="col-2">Full Name</div>
-                    <div class="col-2">Job Title</div>
-                    <div class="col-2">Email</div>
-                    <div class="col-2">Department</div>
-                    <div class="col-2">Location</div>
+                    <div class="col-4">Department</div>
+                    <div class="col-3">Location</div>
                     <div class="col-2">Actions</div>
                 </div>
             <!-- DATA ROWS -->
@@ -51,29 +47,23 @@ function readPersonnelTemplate(data, keywords) {
 
     $.each(data.records, function(key, value) {
 
-        readPersonnelHtml += `
+        readDepartmentHtml += `
             <div class="row justify-content-center text-center text-md-left py-2 md-mb-1 info-panel">
-                <div class="col-6 col-md-2 align-self-center rounded-top data-panel"><i class="fas fa-user d-inline d-md-none"></i> ${value.firstName} ${value.lastName}</div>
+                <div class="col-6 col-md-4 align-self-center rounded-top data-panel"><i class="fas fa-network-wired d-inline d-md-none"></i> ${value.name}</div>
                 <div class="w-100 d-md-none d-block"></div>
-                <div class="col-6 col-md-2 align-self-center data-panel"><i class="fas fa-address-card d-inline d-md-none"></i> ${value.jobTitle}</div>
+                <div class="col-6 col-md-3 align-self-center data-panel"><i class="fas fa-map-marker-alt d-inline d-md-none"></i> ${value.location}</div>
                 <div class="w-100 d-md-none d-block"></div>
-                <div class="col-6 col-md-2 align-self-center text-truncate data-panel"><i class="fas fa-envelope d-inline d-md-none"></i> ${value.email}</div>
-                <div class="w-100 d-md-none d-block"></div>
-                <div class="col-6 col-md-2 align-self-center data-panel"><i class="fas fa-network-wired d-inline d-md-none"></i> ${value.department}</div>
-                <div class="w-100 d-md-none d-block"></div>
-                <div class="col-6 col-md-2 align-self-center data-panel"><i class="fas fa-map-marker-alt d-inline d-md-none"></i> ${value.location}</div>
-                <div class="w-100 d-md-none d-block"></div>
+
                 <div class="col-6 col-md-2 align-self-center text-nowrap rounded-bottom py-1 data-panel">
-                    <button class="btn btn-outline-primary btn-sm read-one-personnel-btn" data-id="${value.id}"><i class="far fa-eye"></i></button>
-                    <button class="btn btn-outline-info btn-sm update-personnel-btn" data-id="${value.id}"><i class="far fa-edit"></i></button>
-                    <button class="btn btn-outline-danger btn-sm delete-personnel-btn" data-id="${value.id}" data-toggle="modal" data-target="#deleteModalConfirmation"><i class="far fa-trash-alt"></i></button>
+                    <button class="btn btn-outline-info btn-sm update-department-btn" data-id="${value.id}"><i class="far fa-edit"></i></button>
+                    <button class="btn btn-outline-danger btn-sm delete-department-btn" data-id="${value.id}" data-toggle="modal" data-target="#deleteModalConfirmation"><i class="far fa-trash-alt"></i></button>
                 </div>
             </div>
         `;
     });
 
-    readPersonnelHtml += `</div>`;
+    readDepartmentHtml += `</div>`;
  
-    $("#page-content").html(readPersonnelHtml);
+    $("#page-content").html(readDepartmentHtml);
 
 }

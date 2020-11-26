@@ -27,10 +27,11 @@
 
             extract($row);
     
-            $department_item=array(
+            $department_item = array(
                 "id" => $id,
                 "name" => $name,
-                "locationId" => $locationId
+                "locationId" => $locationId,
+                "location" => $location
             );
     
             array_push($departments_arr["records"], $department_item);

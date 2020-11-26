@@ -34,8 +34,8 @@ $(document).ready(function(){
 
                     <form id='update-personnel-form' action='#' method='post'>
                         <div class="container-fluid">
-                            <div class="row justify-content-center text-center text-md-left py-2 md-mb-1 personnel-info">
-                                <div class="col-10 col-md-6 rounded-top personnel-data">
+                            <div class="row justify-content-center text-center text-md-left py-2 md-mb-1 info-panel">
+                                <div class="col-10 col-md-6 rounded-top data-panel">
                                     <label class="sr-only" for="firstName">First Name</label>
                                     <label class="sr-only" for="lastName">Last Name</label>
                                     <div class="input-group my-2">
@@ -47,7 +47,7 @@ $(document).ready(function(){
                                     </div>
                                 </div>
                                 <div class="w-100 d-md-block d-none"></div>
-                                <div class="col-10 col-md-6 personnel-data">
+                                <div class="col-10 col-md-6 data-panel">
                                     <label class="sr-only" for="department">Department</label>
                                     <label class="sr-only" for="jobTitle">Department</label>
                                     <div class="input-group mb-2">
@@ -59,7 +59,7 @@ $(document).ready(function(){
                                     </div>
                                 </div>
                                 <div class="w-100 d-md-block d-none"></div>
-                                <div class="col-10 col-md-6 rounded-bottom personnel-data">
+                                <div class="col-10 col-md-6 rounded-bottom data-panel">
                                     <label class="sr-only" for="email">Email</label>
                                     <div class="input-group mb-2">
                                         <div class="input-group-prepend">
@@ -68,7 +68,7 @@ $(document).ready(function(){
                                         <input class="form-control" type='text' name='email' placeholder="Email" value="${email}" required />
                                         <input class="form-control" type='hidden' name='id' value="${id}" />
                                         <div class="input-group-append">
-                                            <button class="btn btn-sm btn-outline-warning text-uppercase" type="submit">Update person</button>
+                                            <button class="btn btn-sm btn-outline-warning text-uppercase" type="submit">Update</button>
                                         </div>
                                     </div>
                                 </div>
