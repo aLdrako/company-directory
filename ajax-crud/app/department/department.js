@@ -22,8 +22,8 @@ function readDepartmentTemplate(data, keywords) {
             <!-- NAVBAR -->
             <nav id="navbar" class="navbar navbar-expand-md fixed-top navbar-dark">
                 <a class="navbar-brand" href="#"><h4 class="page-title"></h4></a>
-                <button class="btn btn-outline-light btn-sm read-personnel-btn" data-toggle="tooltip" title="Show all entries" data-placement="top"><i class="fas fa-list"></i></button>
-                <button class="btn btn-outline-warning btn-sm ml-1 mr-auto create-department-btn"  data-toggle="tooltip" title="Add department" data-placement="top"><i class="fas fa-network-wired">+</i></button>
+                <button class="btn btn-outline-warning btn-sm create-department-btn" data-toggle="tooltip" title="Add department" data-placement="top"><i class="fas fa-network-wired">+</i></button>
+                <button class="btn btn-outline-light btn-sm read-personnel-btn ml-1 mr-auto" data-toggle="tooltip" title="Show all entries" data-placement="top"><i class="fas fa-list"></i></button>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

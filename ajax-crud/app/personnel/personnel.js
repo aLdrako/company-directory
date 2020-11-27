@@ -22,9 +22,9 @@ function readPersonnelTemplate(data, keywords) {
             <!-- NAVBAR -->
             <nav id="navbar" class="navbar navbar-expand-md fixed-top navbar-dark">
                 <a class="navbar-brand" href="#"><h4 class="page-title"></h4></a>
+                <button id="create-personnel" class="btn btn-outline-warning btn-sm create-personnel-btn mr-1" data-toggle="tooltip" title="Add person" data-placement="top"><i class="fas fa-user-plus"></i></button>
                 <button class="btn btn-outline-light btn-sm read-department-btn" data-toggle="tooltip" title="Departments" data-placement="top"><i class="fas fa-network-wired"></i></button>
-                <button class="btn btn-outline-light btn-sm ml-1 read-location-btn" data-toggle="tooltip" title="Locations" data-placement="top"><i class="fas fa-map-marker-alt"></i></button>
-                <button id="create-personnel" class="btn btn-outline-warning btn-sm create-personnel-btn ml-1 mr-auto" data-toggle="tooltip" title="Add person" data-placement="top"><i class="fas fa-user-plus"></i></button>
+                <button class="btn btn-outline-light btn-sm read-location-btn ml-1  mr-auto" data-toggle="tooltip" title="Locations" data-placement="top"><i class="fas fa-map-marker-alt"></i></button>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

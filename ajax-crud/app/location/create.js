@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    $(document).on('click', '.create-location-btn', function(){
+    $(document).on('click', '.create-location-btn', function() {
 
         $('.tooltip').remove();
 
@@ -8,7 +8,7 @@ $(document).ready(function(){
             <nav id="navbar" class="navbar navbar-expand-md fixed-top navbar-dark">
                 <a class="navbar-brand" href="#"><h4 class="page-title"></h4></a>
                 <button id="read-personnel" class="btn btn-outline-light btn-sm read-personnel-btn" data-toggle="tooltip" title="Show all entries" data-placement="top"><i class="fas fa-list"></i></button>
-                <button id="read-location" class="btn btn-outline-light btn-sm ml-1 mr-auto read-location-btn"  data-toggle="tooltip" title="Departments" data-placement="top"><i class="fas fa-map-marker-alt"></i></button>
+                <button id="read-location" class="btn btn-outline-light btn-sm ml-1 mr-auto read-location-btn"  data-toggle="tooltip" title="Locations" data-placement="top"><i class="fas fa-map-marker-alt"></i></button>
             </nav>
 
             <form id='create-location-form' action='#' method='post'>

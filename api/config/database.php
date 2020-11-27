@@ -4,7 +4,7 @@
         private $host = "localhost";
         private $db_name = "companydirectory";
         private $username = "admin";
-        private $password = "osboxes.org";
+        private $password = "admin";
         private $charset = "utf8";
         public $connection;
     
@@ -13,9 +13,9 @@
     
             $this->connection = null;
     
-            try{
+            try {
                 $this->connection = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name . ";charset=" . $this->charset, $this->username, $this->password);
-            }catch(PDOException $exception){
+            } catch(PDOException $exception) {
                 echo "Connection error: " . $exception->getMessage();
             }
     
