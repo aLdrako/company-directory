@@ -210,5 +210,26 @@
         
             return $stmt;
         }
+
+        // filter personnel by location
+        function filter ($filter) {
+            
+            $query = "SELECT p.id, p.firstName, p.lastName, p.jobTitle, p.email, p.departmentId, d.name AS department, l.name AS location 
+                FROM personnel p 
+                LEFT JOIN 
+                    department d ON p.departmentId = d.id 
+                LEFT JOIN 
+                    location l ON d.locationId=l.id
+                WHERE 
+                    l.name = ?;";
+
+            $stmt = $this->connection->prepare($query);
+
+            $stmt->bindParam(1, $filter);
+
+            $stmt->execute();
+
+            return $stmt;
+        }
     }
 ?>
