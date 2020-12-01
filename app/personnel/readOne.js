@@ -31,7 +31,7 @@ $(document).ready(function(){
                     <button id="read-personnel" class="btn btn-outline-light btn-sm mr-auto read-personnel-btn" data-toggle="tooltip" title="Show all entries" data-placement="top"><i class="fas fa-list"></i></button>
                 </nav>
 
-                <div class="container-fluid">
+                <div class="container-fluid mt-0 mt-md-n5">
                     <div class="row justify-content-center d-md-flex d-none py-3 font-weight-bold header-panel">
                         <div class="col-2">Full Name</div>
                         <div class="col-2">Job Title</div>

@@ -25,7 +25,7 @@ $(document).ready(function(){
             changePageTitle("Search: " + keywords);
  
         }).fail(function() {
-            $('.alert').removeClass('d-none');
+            $('#noDataFound').modal('show');
         });;
         
         return false;

@@ -12,17 +12,6 @@
         public function __construct($db) {
             $this->connection = $db;
         }
-    
-        // used by select drop-down list
-        // public function readAll(){
-        //     //select all data
-        //     $query = "SELECT id, name FROM " . $this->tableName;
-    
-        //     $stmt = $this->connection->prepare( $query );
-        //     $stmt->execute();
-    
-        //     return $stmt;
-        // }
 
         public function read() {
         

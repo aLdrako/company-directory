@@ -1,6 +1,6 @@
 .header-panel {
-    background-color: #e76f51;
-    color: #264653;
+    background-color: #264653;
+    color: #e9c46a;
 }
 
 .info-panel {
@@ -10,6 +10,19 @@
 
 .info-panel .input-group-text {
     width: 2.67rem;
+}
+
+.main-content {
+    padding-top: 7.1rem;
+    background-color: #264653;
+}
+
+#navbar.navbar {
+    background-color: #2a9d8f;
+}
+
+#header.fixed-top {
+    top: 3.9rem;
 }
 
 @media only screen and (max-width: 767px) {
@@ -25,6 +38,11 @@
     #search-personnel-form.form-inline {
         flex-flow: row nowrap;
     }
+
+    .main-content {
+        padding-top: 3.65rem;
+        background-color: #e9c46a;
+    }
 }
 
 @media only screen and (max-width: 578px) {
@@ -34,12 +52,4 @@
     #navbar.navbar {
         padding-bottom: 0.85rem;
     }
-}
-
-.main-content {
-    padding-top: 3.65rem;
-}
-
-#navbar.navbar {
-    background-color: #2a9d8f;
 }

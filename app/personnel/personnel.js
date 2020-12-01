@@ -1,9 +1,9 @@
-function readPersonnelTemplate(data, keywords, filterOptionsHtml = '') {
+function readPersonnelTemplate(data, keywords) {
 
     let readPersonnelHtml = `
             <!-- MODAL -->
             <div class="modal fade" id="deleteModalConfirmation" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-sm">
                     <div class="modal-content">
                         <div class="modal-header">
                         <h5 class="modal-title" id="deleteModalLabel">Delete person</h5>
@@ -16,6 +16,13 @@ function readPersonnelTemplate(data, keywords, filterOptionsHtml = '') {
                         <button type="button" class="btn btn-danger btn-del">Delete</button>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- ALERT MESSAGE -->
+            <div class="modal fade" id="noDataFound" tabindex="-1" aria-labelledby="noDataFoundLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm alert alert-danger text-center">   
+                    <strong>No matches!</strong>
                 </div>
             </div>
             
@@ -44,7 +51,7 @@ function readPersonnelTemplate(data, keywords, filterOptionsHtml = '') {
             </nav>
 
             <!-- TITLE ROW -->
-            <div class="container-fluid">
+            <div id="header" class="container-fluid fixed-top">
                 <div class="row justify-content-center d-md-flex d-none py-3 font-weight-bold header-panel">
                     <div class="col-2">Full Name</div>
                     <div class="col-2">Job Title</div>
@@ -53,12 +60,10 @@ function readPersonnelTemplate(data, keywords, filterOptionsHtml = '') {
                     <div class="col-2">Location</div>
                     <div class="col-2">Actions</div>
                 </div>
+            </div>
 
-                <!-- ALERT MESSAGE -->
-                <div class="row justify-content-center alert alert-danger fade show mb-n1 d-none" role="alert">
-                    <strong>No data match!</strong>
-                </div>
             <!-- DATA ROWS -->
+            <div class="container-fluid">
         `;
 
     $.each(data.records, function(key, value) {

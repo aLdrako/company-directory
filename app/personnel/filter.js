@@ -1,15 +1,4 @@
 $(document).ready(function(){
-
-    let filterOptionsHtml = '<option value="" disabled selected>Sort</option>';
-
-    $.getJSON("http://localhost/company-directory/api/location/read.php", function(data) {
-                    
-        $.each(data.records, function(key, value) {
-
-            filterOptionsHtml += `<option value='${value.name}'>${value.name}</option>`;
-        });
-
-    });
  
     $(document).on('change', '#filter-personnel-form', function(){
 
@@ -25,7 +14,7 @@ $(document).ready(function(){
             changePageTitle("In " + filter);
  
         }).fail(function() {
-            $('.alert').removeClass('d-none');
+            $('#noDataFound').modal('show');
         });
         
         return false;

@@ -17,7 +17,7 @@ $(document).ready(function(){
                     </nav>
 
                     <form id='update-location-form' action='#' method='post'>
-                        <div class="container-fluid">
+                        <div class="container-fluid mt-0 mt-md-n5">
                             <div class="row justify-content-center text-center text-md-left py-2 md-mb-1 info-panel">
                                 <div class="row justify-content-center text-center text-md-left py-2 md-mb-1 info-panel">
                                     <div class="col-10 col-md-12 rounded data-panel pt-2">

@@ -1,3 +1,6 @@
+let locations = [];
+let filterOptionsHtml = '<option value="" disabled selected>Sort</option>';
+
 $(document).ready(function(){
  
     let appHtml = `
