@@ -10,6 +10,14 @@ $(document).ready(function(){
 
     });
 
+    $.getJSON("http://localhost/company-directory/api/department/read.php", function(data) {
+                    
+        $.each(data.records, function(key, value) {
+
+            departments.push(value.name);
+        });
+    });
+
     showPersonnel(filterOptionsHtml);
 
     $(document).on('click', '.read-personnel-btn', function(){

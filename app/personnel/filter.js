@@ -14,7 +14,7 @@ $(document).ready(function(){
             changePageTitle("In " + filter);
  
         }).fail(function() {
-            $('#noDataFound').modal('show');
+            $('#alertMsg').modal('show');
         });
         
         return false;

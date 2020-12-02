@@ -1,15 +1,26 @@
 $(document).ready(function(){
+
+    let locName = undefined;
  
     $(document).on('click', '.update-location-btn', function(){
 
         $('.tooltip').remove();
         let id = $(this).attr('data-id');
+        locName = $(this).attr('data-name');
 
         $.getJSON("http://localhost/company-directory/api/location/readOne.php?id=" + id, function(data){
         
             let name = data.name;
 
                 let updateLocationHtml = `
+                    <!-- ALERT MESSAGE -->
+                    <div class="modal fade" id="alertMsg" tabindex="-1" aria-labelledby="alertMsgLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-sm alert alert-danger text-center">   
+                            <strong>Location with this name already exists!</strong>
+                        </div>
+                    </div>
+        
+                    <!-- NAVBAR -->
                     <nav id="navbar" class="navbar navbar-expand-md fixed-top navbar-dark">
                         <a class="navbar-brand" href="#"><h4 class="page-title"></h4></a>
                         <button id="read-personnel" class="btn btn-outline-light btn-sm read-personnel-btn" data-toggle="tooltip" title="Show all entries" data-placement="top"><i class="fas fa-list"></i></button>
@@ -47,20 +58,29 @@ $(document).ready(function(){
      
     $(document).on('submit', '#update-location-form', function(){
         
-        let formData = JSON.stringify($(this).serializeObject());
+        let locObj = $(this).serializeObject();
+        let formData = JSON.stringify(locObj);
 
-        $.ajax({
-            url: "http://localhost/company-directory/api/location/update.php",
-            type : "POST",
-            contentType : 'application/json',
-            data : formData,
-            success : function(result) {
-                showLocation();
-            },
-            error: function(xhr, resp, text) {
-                console.log(xhr, resp, text);
-            }
-        });
+        if (!locations.includes(locObj.name)) {
+
+            locations.splice(locations.indexOf(locName), 1);
+            locations.push(locObj.name);
+
+            $.ajax({
+                url: "http://localhost/company-directory/api/location/update.php",
+                type : "POST",
+                contentType : 'application/json',
+                data : formData,
+                success : function(result) {
+                    showLocation();
+                },
+                error: function(xhr, resp, text) {
+                    console.log(xhr, resp, text);
+                }
+            });
+        } else {
+            $('#alertMsg').modal('show');
+        }
         
         return false;
     });

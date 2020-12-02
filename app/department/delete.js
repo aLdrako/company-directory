@@ -3,8 +3,12 @@ $(document).ready(function(){
     $(document).on('click', '.delete-department-btn', function(){
 
         let id = $(this).attr('data-id');
+        let depName = $(this).attr('data-name');
         
         $('#deleteModalConfirmation').on('click', '.btn-del', function(e) {
+
+            departments.splice(departments.indexOf(depName), 1);
+
             $.ajax({
                 url: "http://localhost/company-directory/api/department/delete.php",
                 type : "POST",

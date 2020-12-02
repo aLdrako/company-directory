@@ -73,6 +73,7 @@ $(document).ready(function(){
     $(document).on('submit', '#create-personnel-form', function(){
         
         let formData = JSON.stringify($(this).serializeObject());
+        console.log(formData);
 
         $.ajax({
             url: "http://localhost/company-directory/api/personnel/create.php",

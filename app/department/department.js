@@ -20,7 +20,7 @@ function readDepartmentTemplate(data, keywords) {
             </div>
 
             <!-- ALERT MESSAGE -->
-            <div class="modal fade" id="noDataFound" tabindex="-1" aria-labelledby="noDataFoundLabel" aria-hidden="true">
+            <div class="modal fade" id="alertMsg" tabindex="-1" aria-labelledby="alertMsgLabel" aria-hidden="true">
                 <div class="modal-dialog modal-sm alert alert-danger text-center">   
                     <strong>No matches!</strong>           
                 </div>
@@ -65,8 +65,8 @@ function readDepartmentTemplate(data, keywords) {
                 <div class="w-100 d-md-none d-block"></div>
 
                 <div class="col-6 col-md-2 align-self-center text-nowrap rounded-bottom py-1 data-panel">
-                    <button class="btn btn-outline-info btn-sm update-department-btn" data-id="${value.id}"><i class="far fa-edit"></i></button>
-                    <button class="btn btn-outline-danger btn-sm delete-department-btn" data-id="${value.id}" data-toggle="modal" data-target="#deleteModalConfirmation"><i class="far fa-trash-alt"></i></button>
+                    <button class="btn btn-outline-info btn-sm update-department-btn" data-id="${value.id}" data-name="${value.name}"><i class="far fa-edit"></i></button>
+                    <button class="btn btn-outline-danger btn-sm delete-department-btn" data-id="${value.id}" data-name="${value.name}" data-toggle="modal" data-target="#deleteModalConfirmation"><i class="far fa-trash-alt"></i></button>
                 </div>
             </div>
         `;

@@ -1,4 +1,5 @@
 let locations = [];
+let departments = [];
 let filterOptionsHtml = '<option value="" disabled selected>Sort</option>';
 
 $(document).ready(function(){

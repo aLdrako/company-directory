@@ -3,8 +3,12 @@ $(document).ready(function(){
     $(document).on('click', '.delete-location-btn', function(){
 
         let id = $(this).attr('data-id');
+        let locName = $(this).attr('data-name');
         
-        $('#deleteModalConfirmation').on('click', '.btn-del', function(e) {
+        $('#deleteModalConfirmation').on('click', '.btn-del', function() {
+
+            locations.splice(locations.indexOf(locName), 1);
+
             $.ajax({
                 url: "http://localhost/company-directory/api/location/delete.php",
                 type : "POST",

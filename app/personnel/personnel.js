@@ -20,7 +20,7 @@ function readPersonnelTemplate(data, keywords) {
             </div>
 
             <!-- ALERT MESSAGE -->
-            <div class="modal fade" id="noDataFound" tabindex="-1" aria-labelledby="noDataFoundLabel" aria-hidden="true">
+            <div class="modal fade" id="alertMsg" tabindex="-1" aria-labelledby="alertMsgLabel" aria-hidden="true">
                 <div class="modal-dialog modal-sm alert alert-danger text-center">   
                     <strong>No matches!</strong>
                 </div>

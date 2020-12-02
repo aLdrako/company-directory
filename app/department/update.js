@@ -1,9 +1,12 @@
 $(document).ready(function(){
  
+    let depName = undefined;
+
     $(document).on('click', '.update-department-btn', function(){
 
         $('.tooltip').remove();
         let id = $(this).attr('data-id');
+        depName = $(this).attr('data-name');
 
         $.getJSON("http://localhost/company-directory/api/department/readOne.php?id=" + id, function(data){
         
@@ -26,6 +29,14 @@ $(document).ready(function(){
                 locationOptionsHtml += '</select>';
 
                 let updateDepartmentHtml = `
+                    <!-- ALERT MESSAGE -->
+                    <div class="modal fade" id="alertMsg" tabindex="-1" aria-labelledby="alertMsgLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-sm alert alert-danger text-center">   
+                            <strong>Location with this name already exists!</strong>
+                        </div>
+                    </div>
+        
+                    <!-- NAVBAR -->
                     <nav id="navbar" class="navbar navbar-expand-md fixed-top navbar-dark">
                         <a class="navbar-brand" href="#"><h4 class="page-title"></h4></a>
                         <button id="read-personnel" class="btn btn-outline-light btn-sm read-personnel-btn" data-toggle="tooltip" title="Show all entries" data-placement="top"><i class="fas fa-list"></i></button>
@@ -66,20 +77,29 @@ $(document).ready(function(){
      
     $(document).on('submit', '#update-department-form', function(){
         
-        let formData = JSON.stringify($(this).serializeObject());
+        let depObj = $(this).serializeObject();
+        let formData = JSON.stringify(depObj);
 
-        $.ajax({
-            url: "http://localhost/company-directory/api/department/update.php",
-            type : "POST",
-            contentType : 'application/json',
-            data : formData,
-            success : function(result) {
-                showDepartment();
-            },
-            error: function(xhr, resp, text) {
-                console.log(xhr, resp, text);
-            }
-        });
+        if (!departments.includes(depObj.name)) {
+
+            departments.splice(departments.indexOf(depName), 1);
+            departments.push(depObj.name);
+
+            $.ajax({
+                url: "http://localhost/company-directory/api/department/update.php",
+                type : "POST",
+                contentType : 'application/json',
+                data : formData,
+                success : function(result) {
+                    showDepartment();
+                },
+                error: function(xhr, resp, text) {
+                    console.log(xhr, resp, text);
+                }
+            });
+        } else {
+            $('#alertMsg').modal('show');
+        }
         
         return false;
     });
