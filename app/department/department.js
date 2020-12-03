@@ -56,7 +56,6 @@ function readDepartmentTemplate(data, keywords) {
         `;
 
     $.each(data.records, function(key, value) {
-
         readDepartmentHtml += `
             <div class="row justify-content-center text-center text-md-left py-2 md-mb-1 info-panel">
                 <div class="col-6 col-md-4 align-self-center rounded-top data-panel"><i class="fas fa-network-wired d-inline d-md-none"></i> ${value.name}</div>
@@ -65,8 +64,8 @@ function readDepartmentTemplate(data, keywords) {
                 <div class="w-100 d-md-none d-block"></div>
 
                 <div class="col-6 col-md-2 align-self-center text-nowrap rounded-bottom py-1 data-panel">
-                    <button class="btn btn-outline-info btn-sm update-department-btn" data-id="${value.id}" data-name="${value.name}"><i class="far fa-edit"></i></button>
-                    <button class="btn btn-outline-danger btn-sm delete-department-btn" data-id="${value.id}" data-name="${value.name}" data-toggle="modal" data-target="#deleteModalConfirmation"><i class="far fa-trash-alt"></i></button>
+                    <button class="btn btn-outline-info btn-sm update-department-btn" data-id="${value.id}" data-obj='${JSON.stringify(value)}'><i class="far fa-edit"></i></button>
+                    <button class="btn btn-outline-danger btn-sm delete-department-btn" data-id="${value.id}" data-obj='${JSON.stringify(value)}' data-toggle="modal" data-target="#deleteModalConfirmation"><i class="far fa-trash-alt"></i></button>
                 </div>
             </div>
         `;

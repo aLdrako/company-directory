@@ -1,12 +1,12 @@
 $(document).ready(function(){
  
-    let depName = undefined;
+    let obj = undefined;
 
     $(document).on('click', '.update-department-btn', function(){
 
         $('.tooltip').remove();
         let id = $(this).attr('data-id');
-        depName = $(this).attr('data-name');
+        obj = JSON.parse($(this).attr('data-obj'));
 
         $.getJSON("http://localhost/company-directory/api/department/readOne.php?id=" + id, function(data){
         
@@ -80,10 +80,11 @@ $(document).ready(function(){
         let depObj = $(this).serializeObject();
         let formData = JSON.stringify(depObj);
 
-        if (!departments.includes(depObj.name)) {
+        if (!departmentsArray.some(el => { return el.name === depObj.name && el.locationId === depObj.locationId })) {
 
-            departments.splice(departments.indexOf(depName), 1);
-            departments.push(depObj.name);
+            departmentsArray.splice(departmentsArray.findIndex(el => { return el.name === obj.name && el.locationId === obj.locationId }), 1);
+
+            departmentsArray.push({'name': depObj.name, 'locationId': depObj.locationId});
 
             $.ajax({
                 url: "http://localhost/company-directory/api/department/update.php",

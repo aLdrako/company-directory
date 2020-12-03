@@ -14,7 +14,7 @@ $(document).ready(function(){
                     
         $.each(data.records, function(key, value) {
 
-            departments.push(value.name);
+            departmentsArray.push({'name': value.name, 'locationId': value.locationId});
         });
     });
 

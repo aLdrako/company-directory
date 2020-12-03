@@ -59,11 +59,12 @@ $(document).ready(function(){
  
     $(document).on('submit', '#create-department-form', function(){
         
-        let depObj = $(this).serializeObject();
+        let depObj = $(this).serializeObject();        
         let formData = JSON.stringify(depObj);
 
-        if (!departments.includes(depObj.name)) {
-            departments.push(depObj.name);
+        if (!departmentsArray.some(el => { return el.name === depObj.name && el.locationId === depObj.locationId })) {
+
+            departmentsArray.push({'name': depObj.name, 'locationId': depObj.locationId});
 
             $.ajax({
                 url: "http://localhost/company-directory/api/department/create.php",
@@ -77,6 +78,7 @@ $(document).ready(function(){
                     console.log(xhr, resp, text);
                 }
             });
+            
         } else {
             $('#alertMsg').modal('show');
         }
