@@ -1,3 +1,12 @@
+/* body.modal-open {
+    overflow: auto!important;
+    padding: 0px!important;
+} */
+
+body {
+    background-color: #264653;
+}
+
 .header-panel {
     background-color: #264653;
     color: #e9c46a;
@@ -46,10 +55,16 @@
 }
 
 @media only screen and (max-width: 578px) {
-    .page-title {
+    .navbar-brand {
         display: none;
     }
     #navbar.navbar {
         padding-bottom: 0.85rem;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    body {
+        background-color: #e9c46a;
     }
 }

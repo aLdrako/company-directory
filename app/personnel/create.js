@@ -71,9 +71,11 @@ $(document).ready(function(){
     });
  
     $(document).on('submit', '#create-personnel-form', function(){
-        
-        let formData = JSON.stringify($(this).serializeObject());
-        console.log(formData);
+
+        let perObj = $(this).serializeObject();        
+        let formData = JSON.stringify(perObj);
+
+        departmentsActiveArray.push(perObj.departmentId);
 
         $.ajax({
             url: "http://localhost/company-directory/api/personnel/create.php",

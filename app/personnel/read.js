@@ -18,25 +18,33 @@ $(document).ready(function(){
         });
     });
 
-    showPersonnel(filterOptionsHtml);
+    $.getJSON("http://localhost/company-directory/api/personnel/read.php", function(data) {
+                    
+        $.each(data.records, function(key, value) {
 
-    $(document).on('click', '.read-personnel-btn', function(){
+            departmentsActiveArray.push(value.departmentId);
+        });
+    });
+
+    showPersonnel();
+
+    $(document).on('click', '.read-personnel-btn', function() {
         
         filterOptionsHtml = '<option value="" disabled selected>Sort</option>';
         locations.forEach(el => {
             filterOptionsHtml += `<option value='${el}'>${el}</option>`;
         });
 
-        showPersonnel(filterOptionsHtml);
+        showPersonnel();
     });
 
 });
 
-function showPersonnel(filter){
+function showPersonnel() {
  
-    $.getJSON("http://localhost/company-directory/api/personnel/read.php", function(data){
- 
-        readPersonnelTemplate(data, "", filter);
+    $.getJSON("http://localhost/company-directory/api/personnel/read.php", function(data) {
+
+        readPersonnelTemplate(data, "");
  
         changePageTitle("Personnel");
 

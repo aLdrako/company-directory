@@ -11,6 +11,11 @@ function readLocationTemplate(data, keywords) {
                             <span aria-hidden="true">&times;</span>
                         </button>
                         </div>
+                        <div class="modal-body d-none">
+                            <div class="alert alert-danger text-center">   
+                                <strong>Cannot delete due to dependencies!</strong>   
+                            </div>
+                        </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                         <button type="button" class="btn btn-danger btn-del">Delete</button>

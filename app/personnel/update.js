@@ -1,8 +1,11 @@
 $(document).ready(function(){
+
+    let depId = undefined;
  
     $(document).on('click', '.update-personnel-btn', function(){
 
         let id = $(this).attr('data-id');
+        depId = $(this).attr('data-depId');
 
         $.getJSON("http://localhost/company-directory/api/personnel/readOne.php?id=" + id, function(data){
         
@@ -86,7 +89,11 @@ $(document).ready(function(){
      
     $(document).on('submit', '#update-personnel-form', function(){
         
-        let formData = JSON.stringify($(this).serializeObject());
+        let perObj = $(this).serializeObject();        
+        let formData = JSON.stringify(perObj);
+
+        departmentsActiveArray.splice(departmentsActiveArray.indexOf(depId), 1);
+        departmentsActiveArray.push(perObj.departmentId);
 
         $.ajax({
             url: "http://localhost/company-directory/api/personnel/update.php",

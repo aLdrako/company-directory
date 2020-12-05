@@ -81,9 +81,9 @@ function readPersonnelTemplate(data, keywords) {
                 <div class="col-6 col-md-2 align-self-center data-panel"><i class="fas fa-map-marker-alt d-inline d-md-none"></i> ${value.location}</div>
                 <div class="w-100 d-md-none d-block"></div>
                 <div class="col-6 col-md-2 align-self-center text-nowrap rounded-bottom py-1 data-panel">
-                    <button class="btn btn-outline-primary btn-sm read-one-personnel-btn" data-id="${value.id}"><i class="far fa-eye"></i></button>
-                    <button class="btn btn-outline-info btn-sm update-personnel-btn" data-id="${value.id}"><i class="far fa-edit"></i></button>
-                    <button class="btn btn-outline-danger btn-sm delete-personnel-btn" data-id="${value.id}" data-toggle="modal" data-target="#deleteModalConfirmation"><i class="far fa-trash-alt"></i></button>
+                    <button class="btn btn-outline-primary btn-sm read-one-personnel-btn" data-id="${value.id}" data-depId="${value.departmentId}"><i class="far fa-eye"></i></button>
+                    <button class="btn btn-outline-info btn-sm update-personnel-btn" data-id="${value.id}" data-depId="${value.departmentId}"><i class="far fa-edit"></i></button>
+                    <button class="btn btn-outline-danger btn-sm delete-personnel-btn" data-id="${value.id}" data-depId="${value.departmentId}" data-toggle="modal" data-target="#deleteModalConfirmation"><i class="far fa-trash-alt"></i></button>
                 </div>
             </div>
         `;

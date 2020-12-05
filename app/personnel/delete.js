@@ -1,10 +1,14 @@
 $(document).ready(function(){
- 
+
     $(document).on('click', '.delete-personnel-btn', function(){
 
         let id = $(this).attr('data-id');
+        let depId = $(this).attr('data-depId');
         
         $('#deleteModalConfirmation').on('click', '.btn-del', function(e) {
+
+            departmentsActiveArray.splice(departmentsActiveArray.indexOf(depId), 1);
+
             $.ajax({
                 url: "http://localhost/company-directory/api/personnel/delete.php",
                 type : "POST",
