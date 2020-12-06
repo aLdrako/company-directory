@@ -34,6 +34,10 @@ body {
     top: 3.9rem;
 }
 
+#locationFilter {
+    width: 90px;
+}
+
 @media only screen and (max-width: 767px) {
     .info-panel {
         background-color: #e9c46a;

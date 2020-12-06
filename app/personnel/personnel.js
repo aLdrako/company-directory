@@ -37,7 +37,7 @@ function readPersonnelTemplate(data, keywords) {
                 <button id="sortByAsc" class="btn btn-outline-dark btn-sm mr-1" data-toggle="tooltip" title="First/Last Name | ASC" data-placement="top"><i class="fas fa-sort-alpha-down"></i></button>
                 <button id="sortByDesc" class="btn btn-outline-dark btn-sm mr-1" data-toggle="tooltip" title="First/Last Name | DESC"" data-placement="top"><i class="fas fa-sort-alpha-down-alt"></i></button>
                 <form class="form-inline mr-auto" id='filter-personnel-form' action='#' method='post'>
-                    <select class="form-control form-control-sm" name="filter">
+                    <select class="form-control form-control-sm" name="filter" id="locationFilter">
                         ${filterOptionsHtml}
                     </select>
                 </form>
