@@ -1,11 +1,11 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
     $.getJSON("http://localhost/company-directory/api/location/read.php", function(data) {
                     
         $.each(data.records, function(key, value) {
 
             filterOptionsHtml += `<option value='${value.name}'>${value.name}</option>`;
-            locations.push(value.name);
+            locationsArray.push(value.name);
         });
 
     });
@@ -31,10 +31,9 @@ $(document).ready(function(){
     $(document).on('click', '.read-personnel-btn', function() {
         
         filterOptionsHtml = '<option value="" disabled selected>Sort</option>';
-        locations.forEach(el => {
+        locationsArray.forEach(el => {
             filterOptionsHtml += `<option value='${el}'>${el}</option>`;
         });
-
         showPersonnel();
     });
 

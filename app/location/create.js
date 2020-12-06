@@ -50,8 +50,8 @@ $(document).ready(function(){
         let locObj = $(this).serializeObject();
         let formData = JSON.stringify(locObj);
 
-        if (!locations.includes(locObj.name)) {
-            locations.push(locObj.name);
+        if (!locationsArray.includes(locObj.name)) {
+            locationsArray.push(locObj.name);
 
             $.ajax({
                 url: "http://localhost/company-directory/api/location/create.php",

@@ -1,7 +1,13 @@
-let locations = [];
+let locationsArray = [];
 let departmentsArray = [];
 let departmentsActiveArray = [];
 let filterOptionsHtml = '<option value="" disabled selected>Sort</option>';
+let personnelDataArray = [];
+let sortToggleAsc = true;
+let sortToggleDesc = true;
+
+let sortAsc = 'fnA';
+let sortDesc = 'fnD';
 
 $(document).ready(function(){
  

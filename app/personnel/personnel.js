@@ -1,5 +1,7 @@
 function readPersonnelTemplate(data, keywords) {
 
+    personnelDataArray.length = 0; 
+
     let readPersonnelHtml = `
             <!-- MODAL -->
             <div class="modal fade" id="deleteModalConfirmation" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
@@ -30,9 +32,10 @@ function readPersonnelTemplate(data, keywords) {
             <nav id="navbar" class="navbar navbar-expand-md fixed-top navbar-dark">
                 <a class="navbar-brand" href="#"><h4 class="h4 page-title"></h4></a>
                 <button id="create-personnel" class="btn btn-outline-warning btn-sm create-personnel-btn mr-1" data-toggle="tooltip" title="Add person" data-placement="top"><i class="fas fa-user-plus"></i></button>
-                <button class="btn btn-outline-light btn-sm read-department-btn" data-toggle="tooltip" title="Departments" data-placement="top"><i class="fas fa-network-wired"></i></button>
-                <button class="btn btn-outline-light btn-sm read-location-btn mx-1" data-toggle="tooltip" title="Locations" data-placement="top"><i class="fas fa-map-marker-alt"></i></button>
-
+                <button class="btn btn-outline-light btn-sm read-department-btn mr-1" data-toggle="tooltip" title="Departments" data-placement="top"><i class="fas fa-network-wired"></i></button>
+                <button class="btn btn-outline-light btn-sm read-location-btn mr-1" data-toggle="tooltip" title="Locations" data-placement="top"><i class="fas fa-map-marker-alt"></i></button>
+                <button id="sortByAsc" class="btn btn-outline-dark btn-sm mr-1" data-toggle="tooltip" title="First/Last Name | ASC" data-placement="top"><i class="fas fa-sort-alpha-down"></i></button>
+                <button id="sortByDesc" class="btn btn-outline-dark btn-sm mr-1" data-toggle="tooltip" title="First/Last Name | DESC"" data-placement="top"><i class="fas fa-sort-alpha-down-alt"></i></button>
                 <form class="form-inline mr-auto" id='filter-personnel-form' action='#' method='post'>
                     <select class="form-control form-control-sm" name="filter">
                         ${filterOptionsHtml}
@@ -63,7 +66,7 @@ function readPersonnelTemplate(data, keywords) {
             </div>
 
             <!-- DATA ROWS -->
-            <div class="container-fluid">
+            <div id="personnelData" class="container-fluid">
         `;
 
     $.each(data.records, function(key, value) {
@@ -87,6 +90,17 @@ function readPersonnelTemplate(data, keywords) {
                 </div>
             </div>
         `;
+
+        personnelDataArray.push({
+            'id': value.id,
+            'firstName': value.firstName,
+            'lastName': value.lastName,
+            'jobTitle': value.jobTitle,
+            'email': value.email,
+            'department': value.department,
+            'departmentId': value.departmentId,
+            'location': value.location
+        });
     });
 
     readPersonnelHtml += `</div>`;

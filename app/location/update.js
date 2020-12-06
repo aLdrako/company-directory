@@ -61,10 +61,10 @@ $(document).ready(function(){
         let locObj = $(this).serializeObject();
         let formData = JSON.stringify(locObj);
 
-        if (!locations.includes(locObj.name)) {
+        if (!locationsArray.includes(locObj.name)) {
 
-            locations.splice(locations.indexOf(locName), 1);
-            locations.push(locObj.name);
+            locationsArray.splice(locationsArray.indexOf(locName), 1);
+            locationsArray.push(locObj.name);
 
             $.ajax({
                 url: "http://localhost/company-directory/api/location/update.php",

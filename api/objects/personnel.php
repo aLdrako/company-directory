@@ -30,7 +30,7 @@
                 LEFT JOIN 
                     department d ON p.departmentId = d.id 
                 LEFT JOIN 
-                    location l ON d.locationId=l.id;";
+                    location l ON d.locationId = l.id;";
         
             // prepare query statement
             $stmt = $this->connection->prepare($query);
@@ -87,7 +87,7 @@
                 LEFT JOIN 
                     department d ON p.departmentId = d.id 
                 LEFT JOIN 
-                    location l ON d.locationId=l.id
+                    location l ON d.locationId = l.id
                 WHERE 
                     p.id = ? LIMIT 0,1;";
         
@@ -124,7 +124,7 @@
                     firstName=:firstName, 
                     lastName=:lastName, 
                     jobTitle=:jobTitle,
-                    email=:email, 
+                    email=:email,
                     departmentId=:departmentId
                 WHERE
                     id=:id";
@@ -188,7 +188,7 @@
                 LEFT JOIN 
                     department d ON p.departmentId = d.id 
                 LEFT JOIN 
-                    location l ON d.locationId=l.id
+                    location l ON d.locationId = l.id
                 WHERE 
                     p.firstName LIKE ? OR p.lastName LIKE ? OR d.name LIKE ? OR l.name LIKE ?;";
         
@@ -219,7 +219,7 @@
                 LEFT JOIN 
                     department d ON p.departmentId = d.id 
                 LEFT JOIN 
-                    location l ON d.locationId=l.id
+                    location l ON d.locationId = l.id
                 WHERE 
                     l.name = ?;";
 

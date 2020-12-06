@@ -10,7 +10,7 @@ $(document).ready(function(){
 
             if (departmentsArray.findIndex(el => el.locationId === id) === -1) {
 
-                locations.splice(locations.indexOf(locName), 1);
+                locationsArray.splice(locationsArray.indexOf(locName), 1);
 
                 $.ajax({
                     url: "http://localhost/company-directory/api/location/delete.php",

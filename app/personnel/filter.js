@@ -6,7 +6,7 @@ $(document).ready(function(){
  
         $.getJSON("http://localhost/company-directory/api/personnel/filter.php?f=" + filter, function(data){
  
-            readPersonnelTemplate(data, "", filterOptionsHtml);
+            readPersonnelTemplate(data, "");
 
             $('#create-personnel').remove();
             $('#navbar a:first-child').after('<button class="btn btn-outline-light btn-sm read-personnel-btn mr-1" data-toggle="tooltip" title="Show all entries" data-placement="top"><i class="fas fa-list"></i></button>');
