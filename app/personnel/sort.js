@@ -16,12 +16,16 @@ function sortBy(sortToggle) {
 
     if (sortToggle == 'fnA') {
         personnelDataArray.sort((a, b) => (a.firstName > b.firstName) ? 1 : ((b.firstName > a.firstName) ? -1 : 0)); 
-    } else if (sortToggle == 'lnA') {
-        personnelDataArray.sort((a, b) => (a.lastName > b.lastName) ? 1 : ((b.lastName > a.lastName) ? -1 : 0));
+        $('#sortByAsc').html('<i class="fas fa-sort-alpha-up"></i>');
     } else if (sortToggle == 'fnD') {
+        personnelDataArray.sort((a, b) => (a.lastName > b.lastName) ? 1 : ((b.lastName > a.lastName) ? -1 : 0));
+        $('#sortByDesc').html('<i class="fas fa-sort-alpha-up-alt"></i>');
+    } else if (sortToggle == 'lnA') {
         personnelDataArray.sort((a, b) => (a.firstName > b.firstName) ? -1 : ((b.firstName > a.firstName) ? 1 : 0));
+        $('#sortByAsc').html('<i class="fas fa-sort-alpha-down"></i>');
     } else if (sortToggle == 'lnD') {
         personnelDataArray.sort((a, b) => (a.lastName > b.lastName) ? -1 : ((b.lastName > a.lastName) ? 1 : 0));
+        $('#sortByDesc').html('<i class="fas fa-sort-alpha-down-alt"></i>');
     }
 
     let readPersonnelHtml = '';
@@ -31,9 +35,9 @@ function sortBy(sortToggle) {
         let fullName = '';
         if (sortToggle == 'fnA') {
             fullName = `${value.firstName} ${value.lastName}`;
-        } else if (sortToggle == 'lnA') {
-            fullName = `${value.lastName} ${value.firstName}`;
         } else if (sortToggle == 'fnD') {
+            fullName = `${value.lastName} ${value.firstName}`;
+        } else if (sortToggle == 'lnA') {
             fullName = `${value.firstName} ${value.lastName}`;
         } else if (sortToggle == 'lnD') {
             fullName = `${value.lastName} ${value.firstName}`;

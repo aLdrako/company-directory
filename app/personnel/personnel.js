@@ -34,8 +34,8 @@ function readPersonnelTemplate(data, keywords) {
                 <button id="create-personnel" class="btn btn-outline-warning btn-sm create-personnel-btn mr-1" data-toggle="tooltip" title="Add person" data-placement="top"><i class="fas fa-user-plus"></i></button>
                 <button class="btn btn-outline-light btn-sm read-department-btn mr-1" data-toggle="tooltip" title="Departments" data-placement="top"><i class="fas fa-network-wired"></i></button>
                 <button class="btn btn-outline-light btn-sm read-location-btn mr-1" data-toggle="tooltip" title="Locations" data-placement="top"><i class="fas fa-map-marker-alt"></i></button>
-                <button id="sortByAsc" class="btn btn-outline-dark btn-sm mr-1" data-toggle="tooltip" title="First/Last Name | ASC" data-placement="top"><i class="fas fa-sort-alpha-down"></i></button>
-                <button id="sortByDesc" class="btn btn-outline-dark btn-sm mr-1" data-toggle="tooltip" title="First/Last Name | DESC"" data-placement="top"><i class="fas fa-sort-alpha-down-alt"></i></button>
+                <button id="sortByAsc" class="btn btn-outline-dark btn-sm mr-1" data-toggle="tooltip" title="First Name" data-placement="top"><i class="fas fa-sort-alpha-down"></i></button>
+                <button id="sortByDesc" class="btn btn-outline-dark btn-sm mr-1" data-toggle="tooltip" title="Last Name" data-placement="top"><i class="fas fa-sort-alpha-down-alt"></i></button>
                 <form class="form-inline mr-auto" id='filter-personnel-form' action='#' method='post'>
                     <select class="form-control form-control-sm" name="filter" id="locationFilter">
                         ${filterOptionsHtml}
