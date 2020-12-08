@@ -8,7 +8,7 @@ $(document).ready(function(){
             <!-- ALERT MESSAGE -->
             <div class="modal fade" id="alertMsg" tabindex="-1" aria-labelledby="alertMsgLabel" aria-hidden="true">
                 <div class="modal-dialog modal-sm alert alert-danger text-center">   
-                    <strong>Location already exists!</strong>
+                    <strong>Location with this name already exists!</strong>
                 </div>
             </div>
 
@@ -22,7 +22,7 @@ $(document).ready(function(){
             <form id='create-location-form' action='#' method='post'>
                 <div class="container-fluid mt-0 mt-md-n5">
                     <div class="row justify-content-center text-md-left py-2 md-mb-1 info-panel">
-                        <div class="col-10 col-md-6 rounded data-panel pt-2">
+                        <div class="col-11 col-sm-8 col-md-6 col-lg-5 rounded data-panel pt-2">
                             <label class="sr-only" for="name">Name</label>
                             <div class="input-group mb-2">
                                 <div class="input-group-prepend">

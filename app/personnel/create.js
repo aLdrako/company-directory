@@ -23,7 +23,7 @@ $(document).ready(function(){
                 <form id='create-personnel-form' action='#' method='post'>
                     <div class="container-fluid mt-0 mt-md-n5">
                         <div class="row justify-content-center text-md-left py-2 md-mb-1 info-panel">
-                            <div class="col-10 col-md-6 rounded-top data-panel">
+                            <div class="col-11 col-sm-9 col-md-6 col-lg-5 rounded-top data-panel">
                                 <label class="sr-only" for="firstName">First Name</label>
                                 <label class="sr-only" for="lastName">Last Name</label>
                                 <div class="input-group my-2">
@@ -35,7 +35,7 @@ $(document).ready(function(){
                                 </div>
                             </div>
                             <div class="w-100 d-md-block d-none"></div>
-                            <div class="col-10 col-md-6 data-panel">
+                            <div class="col-11 col-sm-9 col-md-6 col-lg-5 data-panel">
                                 <label class="sr-only" for="department">Department</label>
                                 <label class="sr-only" for="jobTitle">Job Title</label>
                                 <div class="input-group mb-2">
@@ -47,7 +47,7 @@ $(document).ready(function(){
                                 </div>
                             </div>
                             <div class="w-100 d-md-block d-none"></div>
-                            <div class="col-10 col-md-6 rounded-bottom data-panel">
+                            <div class="col-11 col-sm-9 col-md-6 col-lg-5 rounded-bottom data-panel">
                                 <label class="sr-only" for="email">Email</label>
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
@@ -55,7 +55,7 @@ $(document).ready(function(){
                                     </div>
                                     <input class="form-control" type='text' name='email' placeholder="Email" required />
                                     <div class="input-group-append">
-                                        <button class="btn btn-sm btn-outline-warning text-uppercase" type="submit">Add person</button>
+                                        <button class="btn btn-sm btn-outline-warning text-uppercase" type="submit">Add</button>
                                     </div>
                                 </div>
                             </div>

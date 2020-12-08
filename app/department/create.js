@@ -18,7 +18,7 @@ $(document).ready(function(){
                 <!-- ALERT MESSAGE -->
                 <div class="modal fade" id="alertMsg" tabindex="-1" aria-labelledby="alertMsgLabel" aria-hidden="true">
                     <div class="modal-dialog modal-sm alert alert-danger text-center">   
-                        <strong>Location with this name already exists!</strong>
+                        <strong>Department with this name already exists!</strong>
                     </div>
                 </div>
         
@@ -32,14 +32,19 @@ $(document).ready(function(){
                 <form id='create-department-form' action='#' method='post'>
                     <div class="container-fluid mt-0 mt-md-n5">
                         <div class="row justify-content-center text-md-left py-2 md-mb-1 info-panel">
-                            <div class="col-10 col-md-6 rounded pt-2 data-panel">
+                            <div class="col-11 col-sm-8 col-md-6 col-lg-5 rounded-top pt-2 data-panel">
                                 <label class="sr-only" for="name">Name</label>
-                                <label class="sr-only" for="location">Location</label>
-                                <div class="input-group mb-2">
+                                <div class="input-group">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="fas fa-network-wired"></i></div>
                                     </div>
                                     <input class="form-control" type='text' name='name' id="name" placeholder="Department name" required />
+                                </div>
+                            </div>
+                            <div class="w-100 d-md-block d-none"></div>
+                            <div class="col-11 col-sm-8 col-md-6 col-lg-5 rounded-bottom pt-2 data-panel">
+                                <label class="sr-only" for="location">Location</label>
+                                <div class="input-group mb-2">
                                     ${locationOptionsHtml}
                                     <div class="input-group-append">
                                         <button class="btn btn-sm btn-outline-warning text-uppercase" type="submit">Add</button>

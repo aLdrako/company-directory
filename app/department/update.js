@@ -29,10 +29,26 @@ $(document).ready(function(){
                 locationOptionsHtml += '</select>';
 
                 let updateDepartmentHtml = `
-                    <!-- ALERT MESSAGE -->
-                    <div class="modal fade" id="alertMsg" tabindex="-1" aria-labelledby="alertMsgLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-sm alert alert-danger text-center">   
-                            <strong>Location with this name already exists!</strong>
+                    <!-- MODAL -->
+                    <div class="modal fade" id="updateModalConfirmation" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="updateModalLabel">Update department</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body d-none">
+                                    <div class="alert alert-danger text-center">   
+                                        <strong>Department with this name already exists!</strong>   
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-warning btn-upd-dep">Update</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
         
@@ -46,23 +62,26 @@ $(document).ready(function(){
                     <form id='update-department-form' action='#' method='post'>
                         <div class="container-fluid mt-0 mt-md-n5">
                             <div class="row justify-content-center text-md-left py-2 md-mb-1 info-panel">
-                                <div class="row justify-content-center text-md-left py-2 md-mb-1 info-panel">
-                                    <div class="col-10 col-md-12 rounded data-panel pt-2">
+                                    <div class="col-11 col-sm-8 col-md-6 col-lg-5 rounded-top data-panel pt-2">
                                         <label class="sr-only" for="name">Name</label>
-                                        <label class="sr-only" for="location">Location</label>
-                                        <div class="input-group mb-2">
+                                        <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text"><i class="fas fa-network-wired"></i></div>
                                             </div>
                                             <input class="form-control" type='text' name='name' id="name" placeholder="Department name" value="${name}" required />
                                             <input class="form-control" type='hidden' name='id' value="${id}" />
+                                        </div>
+                                    </div>
+                                    <div class="w-100 d-md-block d-none"></div>
+                                    <div class="col-11 col-sm-8 col-md-6 col-lg-5 rounded-bottom data-panel pt-2">
+                                        <label class="sr-only" for="location">Location</label>
+                                        <div class="input-group mb-2">
                                             ${locationOptionsHtml}
                                             <div class="input-group-append">
                                                 <button class="btn btn-sm btn-outline-warning text-uppercase" type="submit">Update</button>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                             </div>
                         </div>
                     </form>
@@ -75,10 +94,19 @@ $(document).ready(function(){
         });
     });
      
-    $(document).on('submit', '#update-department-form', function(){
+    $(document).on('submit', '#update-department-form', function(e){
         
-        let depObj = $(this).serializeObject();
-        let formData = JSON.stringify(depObj);
+        depObj = $(this).serializeObject();
+        depFormData = JSON.stringify(depObj);
+
+        e.preventDefault();
+
+        $('#updateModalConfirmation .modal-body').addClass('d-none');
+        $('#updateModalConfirmation').modal('show');
+
+    });
+
+    $(document).on('click', '.btn-upd-dep', function(e) { 
 
         if (!departmentsArray.some(el => { return el.name === depObj.name && el.locationId === depObj.locationId })) {
 
@@ -90,16 +118,20 @@ $(document).ready(function(){
                 url: "http://localhost/company-directory/api/department/update.php",
                 type : "POST",
                 contentType : 'application/json',
-                data : formData,
+                data : depFormData,
                 success : function(result) {
                     showDepartment();
+                    $('#updateModalConfirmation').modal('hide');
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
+                    $('body').css('padding-right', 0);
                 },
                 error: function(xhr, resp, text) {
                     console.log(xhr, resp, text);
                 }
             });
         } else {
-            $('#alertMsg').modal('show');
+            $('#updateModalConfirmation .modal-body').removeClass('d-none');
         }
         
         return false;

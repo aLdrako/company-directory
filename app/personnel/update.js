@@ -30,6 +30,24 @@ $(document).ready(function(){
                 departmentOptionsHtml += '</select>';
 
                 let updatePersonnelHtml = `
+                    <!-- MODAL -->
+                    <div class="modal fade" id="updateModalConfirmation" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="updateModalLabel">Update person</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-warning btn-upd-per">Update</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- NAVBAR -->
                     <nav id="navbar" class="navbar navbar-expand-md fixed-top navbar-dark">
                         <a class="navbar-brand" href="#"><h4 class="page-title"></h4></a>
                         <button id="read-personnel" class="btn btn-outline-light btn-sm mr-auto read-personnel-btn" data-toggle="tooltip" title="Show all entries" data-placement="top"><i class="fas fa-list"></i></button>
@@ -38,7 +56,7 @@ $(document).ready(function(){
                     <form id='update-personnel-form' action='#' method='post'>
                         <div class="container-fluid mt-0 mt-md-n5">
                             <div class="row justify-content-center text-center text-md-left py-2 md-mb-1 info-panel">
-                                <div class="col-10 col-md-6 rounded-top data-panel">
+                                <div class="col-11 col-sm-9 col-md-6 col-lg-5 rounded-top data-panel">
                                     <label class="sr-only" for="firstName">First Name</label>
                                     <label class="sr-only" for="lastName">Last Name</label>
                                     <div class="input-group my-2">
@@ -50,7 +68,7 @@ $(document).ready(function(){
                                     </div>
                                 </div>
                                 <div class="w-100 d-md-block d-none"></div>
-                                <div class="col-10 col-md-6 data-panel">
+                                <div class="col-11 col-sm-9 col-md-6 col-lg-5 data-panel">
                                     <label class="sr-only" for="department">Department</label>
                                     <label class="sr-only" for="jobTitle">Department</label>
                                     <div class="input-group mb-2">
@@ -62,7 +80,7 @@ $(document).ready(function(){
                                     </div>
                                 </div>
                                 <div class="w-100 d-md-block d-none"></div>
-                                <div class="col-10 col-md-6 rounded-bottom data-panel">
+                                <div class="col-11 col-sm-9 col-md-6 col-lg-5 rounded-bottom data-panel">
                                     <label class="sr-only" for="email">Email</label>
                                     <div class="input-group mb-2">
                                         <div class="input-group-prepend">
@@ -87,11 +105,19 @@ $(document).ready(function(){
         });
     });
      
-    $(document).on('submit', '#update-personnel-form', function(){
-        
-        let perObj = $(this).serializeObject();        
-        let formData = JSON.stringify(perObj);
+    $(document).on('submit', '#update-personnel-form', function(e){
 
+        perObj = $(this).serializeObject();        
+        perFormData = JSON.stringify(perObj);
+
+        e.preventDefault();
+
+        $('#updateModalConfirmation').modal('show');
+        
+    });
+
+    $(document).on('click', '.btn-upd-per', function(e) { 
+        
         departmentsActiveArray.splice(departmentsActiveArray.indexOf(depId), 1);
         departmentsActiveArray.push(perObj.departmentId);
 
@@ -99,9 +125,13 @@ $(document).ready(function(){
             url: "http://localhost/company-directory/api/personnel/update.php",
             type : "POST",
             contentType : 'application/json',
-            data : formData,
+            data : perFormData,
             success : function(result) {
                 showPersonnel();
+                $('#updateModalConfirmation').modal('hide');
+                $('body').removeClass('modal-open');
+                $('.modal-backdrop').remove();
+                $('body').css('padding-right', 0);
             },
             error: function(xhr, resp, text) {
                 console.log(xhr, resp, text);

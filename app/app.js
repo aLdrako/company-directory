@@ -4,6 +4,13 @@ let departmentsActiveArray = [];
 let filterOptionsHtml = '<option value="" disabled selected>Sort</option>';
 let personnelDataArray = [];
 
+let perObj = undefined;
+let perFormData = undefined;
+let depObj = undefined;
+let depFormData = undefined;
+let locObj = undefined;
+let locFormData = undefined;
+
 let sortAsc = 'fnA';
 let sortDesc = 'fnD';
 

@@ -13,10 +13,26 @@ $(document).ready(function(){
             let name = data.name;
 
                 let updateLocationHtml = `
-                    <!-- ALERT MESSAGE -->
-                    <div class="modal fade" id="alertMsg" tabindex="-1" aria-labelledby="alertMsgLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-sm alert alert-danger text-center">   
-                            <strong>Location with this name already exists!</strong>
+                    <!-- MODAL -->
+                    <div class="modal fade" id="updateModalConfirmation" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="updateModalLabel">Update location</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body d-none">
+                                    <div class="alert alert-danger text-center">   
+                                        <strong>Location with this name already exists!</strong>   
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-warning btn-upd-loc">Update</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
         
@@ -30,18 +46,16 @@ $(document).ready(function(){
                     <form id='update-location-form' action='#' method='post'>
                         <div class="container-fluid mt-0 mt-md-n5">
                             <div class="row justify-content-center text-center text-md-left py-2 md-mb-1 info-panel">
-                                <div class="row justify-content-center text-center text-md-left py-2 md-mb-1 info-panel">
-                                    <div class="col-10 col-md-12 rounded data-panel pt-2">
-                                        <label class="sr-only" for="name">Name</label>
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text"><i class="fas fa-map-marker-alt"></i></div>
-                                            </div>
-                                            <input class="form-control" type='text' name='name' id="name" placeholder="Location name" value="${name}" required />
-                                            <input class="form-control" type='hidden' name='id' value="${id}" />
-                                            <div class="input-group-append">
-                                                <button class="btn btn-sm btn-outline-warning text-uppercase" type="submit">Update</button>
-                                            </div>
+                                <div class="col-11 col-sm-8 col-md-6 col-lg-5 rounded data-panel pt-2">
+                                    <label class="sr-only" for="name">Name</label>
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="fas fa-map-marker-alt"></i></div>
+                                        </div>
+                                        <input class="form-control" type='text' name='name' id="name" placeholder="Location name" value="${name}" required />
+                                        <input class="form-control" type='hidden' name='id' value="${id}" />
+                                        <div class="input-group-append">
+                                            <button class="btn btn-sm btn-outline-warning text-uppercase" type="submit">Update</button>
                                         </div>
                                     </div>
                                 </div>
@@ -56,10 +70,19 @@ $(document).ready(function(){
         });
     });
      
-    $(document).on('submit', '#update-location-form', function(){
+    $(document).on('submit', '#update-location-form', function(e){
         
-        let locObj = $(this).serializeObject();
-        let formData = JSON.stringify(locObj);
+        locObj = $(this).serializeObject();
+        locFormData = JSON.stringify(locObj);
+
+        e.preventDefault();
+
+        $('#updateModalConfirmation .modal-body').addClass('d-none');
+        $('#updateModalConfirmation').modal('show');
+
+    });
+
+    $(document).on('click', '.btn-upd-loc', function(e) { 
 
         if (!locationsArray.includes(locObj.name)) {
 
@@ -70,16 +93,20 @@ $(document).ready(function(){
                 url: "http://localhost/company-directory/api/location/update.php",
                 type : "POST",
                 contentType : 'application/json',
-                data : formData,
+                data : locFormData,
                 success : function(result) {
                     showLocation();
+                    $('#updateModalConfirmation').modal('hide');
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
+                    $('body').css('padding-right', 0);
                 },
                 error: function(xhr, resp, text) {
                     console.log(xhr, resp, text);
                 }
             });
         } else {
-            $('#alertMsg').modal('show');
+            $('#updateModalConfirmation .modal-body').removeClass('d-none');
         }
         
         return false;
