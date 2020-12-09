@@ -38,6 +38,38 @@ body {
     width: 90px;
 }
 
+#personModal .modal-content {
+    background-color: transparent;
+    border: none;
+}
+
+#personModal .row div:first-child {
+    border: 3px solid #e9c46a;
+    border-bottom: 0;
+}
+
+#personModal .row div:last-child {
+    border: 3px solid #e9c46a;
+    border-top: 0;
+}
+
+#personModal .row div:not(:first-child):not(:last-child) {
+    border: 3px solid #e9c46a;
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.data-panel-one {
+    background-color: #264653;
+    color: #e9c46a;
+}
+
+#personModal .modal-footer {
+    border: 0;
+    padding: 0;
+    justify-content: center;
+}
+
 @media only screen and (max-width: 767px) {
     .info-panel {
         background-color: #e9c46a;

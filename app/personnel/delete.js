@@ -1,11 +1,17 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
     $(document).on('click', '.delete-personnel-btn', function(){
 
         let id = $(this).attr('data-id');
         let depId = $(this).attr('data-depId');
+
+        $('#personModal .modal-footer').removeClass('d-none');
+
+        $('.btn-cancel').on('click', function() {
+            $('#personModal .modal-footer').addClass('d-none');
+        });
         
-        $('#deleteModalConfirmation').on('click', '.btn-del', function(e) {
+        $('#deleteModalConfirmation, #personModal').on('click', '.btn-del', function(e) {
 
             departmentsActiveArray.splice(departmentsActiveArray.indexOf(depId), 1);
 
@@ -21,6 +27,7 @@ $(document).ready(function(){
                     $('body').removeClass('modal-open');
                     $('.modal-backdrop').remove();
                     $('body').css('padding-right', 0);
+                    $('#personModal .modal-footer').addClass('d-none');
                     
                 },
                 error: function(xhr, resp, text) {
@@ -28,5 +35,9 @@ $(document).ready(function(){
                 }
             });
         });
+    });
+
+    $(document).on('hide.bs.modal', '#personModal, #deleteModalConfirmation', function (e) {
+        $('#personModal .modal-footer').addClass('d-none');
     });
 });

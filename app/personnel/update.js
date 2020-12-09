@@ -7,6 +7,11 @@ $(document).ready(function(){
         let id = $(this).attr('data-id');
         depId = $(this).attr('data-depId');
 
+        $('#personModal').modal('hide');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
+        $('body').css('padding-right', 0);
+
         $.getJSON("http://localhost/company-directory/api/personnel/readOne.php?id=" + id, function(data){
         
             let firstName = data.firstName;

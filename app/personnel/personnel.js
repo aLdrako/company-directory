@@ -14,7 +14,7 @@ function readPersonnelTemplate(data, keywords) {
                         </button>
                         </div>
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-secondary btn-cancel" data-dismiss="modal">Cancel</button>
                         <button type="button" class="btn btn-danger btn-del">Delete</button>
                         </div>
                     </div>
@@ -25,6 +25,19 @@ function readPersonnelTemplate(data, keywords) {
             <div class="modal fade" id="alertMsg" tabindex="-1" aria-labelledby="alertMsgLabel" aria-hidden="true">
                 <div class="modal-dialog modal-sm alert alert-danger text-center">   
                     <strong>No matches!</strong>
+                </div>
+            </div>
+            
+            <!-- MODAL PERSON -->
+            <div class="modal fade" id="personModal" tabindex="-1" aria-labelledby="personModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered text-center">   
+                    <div class="modal-content">
+                        <div class="modal-body"></div>
+                        <div class="modal-footer d-none">
+                            <button type="button" class="btn btn-secondary btn-cancel" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-danger btn-del">Delete</button>
+                        </div>
+                    </div>
                 </div>
             </div>
             
