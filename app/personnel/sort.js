@@ -47,7 +47,7 @@ function sortBy(sortToggle) {
             <div class="row justify-content-center text-center text-md-left py-1 md-mb-1 info-panel">
                 <div class="col-11 col-sm-8 col-md-2 align-self-center rounded-top data-panel"><i class="fas fa-user d-inline d-md-none"></i> ${fullName}</div>
                 <div class="w-100 d-md-none d-block"></div>
-                <div class="col-11 col-sm-8 ol-md-2 align-self-center data-panel"><i class="fas fa-address-card d-inline d-md-none"></i> ${value.jobTitle}</div>
+                <div class="col-11 col-sm-8 col-md-2 align-self-center data-panel"><i class="fas fa-address-card d-inline d-md-none"></i> ${value.jobTitle}</div>
                 <div class="w-100 d-md-none d-block"></div>
                 <div class="col-11 col-sm-8 col-md-2 align-self-center text-truncate data-panel"><i class="fas fa-envelope d-inline d-md-none"></i> ${value.email}</div>
                 <div class="w-100 d-md-none d-block"></div>
