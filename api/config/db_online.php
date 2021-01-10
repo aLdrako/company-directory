@@ -4,7 +4,7 @@
         private $host = "db5001238857.hosting-data.io";
         private $db_name = "dbs1059663";
         private $username = "dbu1046262";
-        private $password = "soLid_25151422";
+        private $password = "___";
         private $charset = "utf8";
         private $port = 3306;
         public $connection;
