@@ -1,10 +1,10 @@
 <?php
     class Database {
     
-        private $host = "db5001238857.hosting-data.io";
-        private $db_name = "dbs1059663";
-        private $username = "dbu1046262";
-        private $password = "___";
+        private $host = "db5011419674.hosting-data.io";
+        private $db_name = "dbs9633702";
+        private $username = "dbu2711551";
+        private $password = "***";
         private $charset = "utf8";
         private $port = 3306;
         public $connection;
@@ -23,7 +23,7 @@
             return $this->connection;
         }
 
-        // https://alexgo.co.uk/Projects/CompanyDirectory/api/location/read.php // online
+        // https://alexgo.online/Projects/CompanyDirectory/api/location/read.php // online
         // http://localhost/company-directory/api/location/read.php // offline
     }
 ?>
