@@ -1,6 +1,6 @@
 # Company Directory
 
-The product is intended to be a standalone, single page application that is designed to be mobile first, but work equally as well on desktops. The application will allow the user to manipulate the database using a simple interface which connects front-end components to server side endpoints to achieve this result.
+In this project you will be required to build upon those skills and provide functionality to interact with a back end server database from a mobile or desktop based client that allows for creation, retrieval and modification of company personnel.
 
 ## Project Overview
 
